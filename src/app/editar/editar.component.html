@@ -1,0 +1,34 @@
+
+<div class="form-container">
+	<form class="example-form">
+	  <mat-form-field class="example-full-width">
+	      <mat-label>Nombre</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_NOMBRE" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field>
+
+	  <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Apellido Paterno</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_APELLIDO_PAT" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Apellido Materno</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_APELLIDO_MAT" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field></td>
+	  </tr></table>
+
+	    <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Estacionamiento</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_N_ESTACIONAMIENTO" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Locker</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_N_LOCKER" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	  </tr></table>
+
+
+	 	  <button (click)="modificar()" mat-raised-button color="primary">Modificar</button>
+	</form>
+</div>

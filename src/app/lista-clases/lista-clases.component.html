@@ -1,0 +1,47 @@
+<div class="mat-container">
+  <div class="mat-card">
+    <div class="mat-card-header">
+     <h3 class="mat-card-header">Lista de Actividades</h3>
+     <button (click)="clases(socio.SOCIO_ID || 0)" mat-button color='primary'><mat-icon>add_circle</mat-icon><span>Agregar Actividad</span></button>
+    </div>
+    <div class="mat-card-content">
+      <table class="mat-table-hover">
+        <thead>
+          <tr>
+            <th class="mat-header-cell" >ACTIVIDAD</th>
+            <th class="mat-header-cell" >ENTRNADOR</th>
+            <th class="mat-header-cell" ></th>
+            <th class="mat-header-cell" >DIA</th>
+            <th class="mat-header-cell" >HORA</th>
+            <th class="mat-header-cell" ></th>
+            <th class="mat-header-cell" >PRECIO ($)</th>
+            <th class="mat-header-cell" >AGREGAR</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let clase of ListarClasesR"  class="mat-row text-center">
+            <th class="mat-cell" >{{clase.ACTIVIDAD_T_CLASE}}</th>
+            <td class="mat-cell" >{{clase.ENTRENADOR_NOMBRE}} </td>
+            <td class="mat-cell" >{{clase.ENTRENADOR_APELLIDO_PAT}} </td>
+            <td class="mat-cell" >{{clase.DIA_DIA}}</td>
+            <td class="mat-cell" >{{clase.HORA_INICIO}}</td>
+            <td class="mat-cell" >{{clase.HORA_FINAL}}</td>
+            <td class="mat-cell" >{{clase.ACTIVIDAD_COSTO}}</td>
+            <td class="mat-cell">
+              
+              <button (click)="eliminar(clase.CLASE_ID || 0)"  mat-button color='accent'><mat-icon>delet</mat-icon><span>Eliminar</span></button>
+              
+          </tr>
+        </tbody>
+      </table>
+       <table class="mat-table-hover">
+           <tr>
+            <th class="mat-header-cell" >TOTAL</th>
+            <th class="mat-header-cell" >{{totalPrecio}}</th>
+          </tr>
+         </table>
+    </div>
+  </div>
+</div>
+
+

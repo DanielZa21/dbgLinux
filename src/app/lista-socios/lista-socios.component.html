@@ -1,0 +1,40 @@
+<div class="mat-container">
+  <div class="mat-card">
+    <div class="mat-card-header">
+     <h3 class="mat-card-header">Lista de Socios</h3>
+    </div>
+    <div class="mat-card-content">
+      <table class="mat-table-hover">
+        <thead>
+          <tr>
+            <th class="mat-header-cell" >MATRICULA</th>
+            <th class="mat-header-cell" >NOMBRE</th>
+            <th class="mat-header-cell" >APELLIDO PATERNO</th>
+            <th class="mat-header-cell" >APELLIDO MATERNO</th>
+            <th class="mat-header-cell" >ESTACIONAMIENTO</th>
+            <th class="mat-header-cell" >LOCKER</th>
+            <th class="mat-header-cell" >FECHA DE INGRESO</th>
+            <th class="mat-header-cell" >ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let socio of ListarSocios" class="mat-row text-center">
+            <td class="mat-cell" >{{socio.SOCIO_MATRICULA}}</td>
+            <th class="mat-cell" >{{socio.SOCIO_NOMBRE}}</th>
+            <td class="mat-cell" >{{socio.SOCIO_APELLIDO_PAT}}</td>
+            <td class="mat-cell" >{{socio.SOCIO_APELLIDO_MAT}}</td>
+            <td class="mat-cell " >{{socio.SOCIO_N_ESTACIONAMIENTO}}</td>
+            <td class="mat-cell" >{{socio.SOCIO_N_LOCKER}}</td>
+            <td class="mat-cell" >{{socio.SOCIO_FECHA_INGRESO | date:'dd/MM/yyyy' }}</td>
+            <td class="mat-cell">
+              <button (click)="modificar(socio.SOCIO_ID || 0)" mat-button color='primary' routerLink="/editar"><mat-icon>edit</mat-icon><span>Editar</span></button>
+              <button (click)="eliminar(socio.SOCIO_ID || 0)" mat-button color='accent'><mat-icon>delete</mat-icon><span>Eliminar</span></button>
+              <button (click)="ver(socio.SOCIO_ID || 0)" mat-button color='red' routerLink="/lista-clases"><mat-icon>visibility</mat-icon><span>Ver Clases</span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

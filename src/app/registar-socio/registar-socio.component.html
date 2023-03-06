@@ -1,0 +1,101 @@
+
+<div class="form-container">
+	<form class="example-form">
+	  <mat-form-field class="example-full-width">
+	      <mat-label>Nombre</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_NOMBRE" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field>
+
+	  <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Apellido Paterno</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_APELLIDO_PAT" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Apellido Materno</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_APELLIDO_MAT" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field></td>
+	  </tr></table>
+
+	    <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Matricula</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_MATRICULA" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Estacionamiento</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_N_ESTACIONAMIENTO" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Locker</mat-label>
+	      <input [(ngModel)]="socio.SOCIO_N_LOCKER" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	  </tr></table>
+
+	   <table class="example-full-width" cellspacing="0"><tr>
+	 	<td><mat-form-field appearance="fill">
+	  <mat-label>Fecha de ingreso</mat-label>
+	  <input matInput [(ngModel)]="socio.SOCIO_FECHA_INGRESO " [ngModelOptions]="{standalone: true}" [matDatepicker]="picker">
+	  <mat-hint>YYYY/MM/DD</mat-hint>
+	  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker #picker></mat-datepicker>
+	</mat-form-field></td> 
+
+	<td><mat-form-field appearance="fill">
+	  <mat-label>Plan de pago</mat-label>
+	  <mat-select [(ngModel)]="socio.SOCIO_PLAN_DE_PAGO_ID" [ngModelOptions]="{standalone: true}">
+	    <mat-option *ngFor="let pago of pagos" [value]="pago.value">
+	      {{pago.viewValue}}
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field></td>
+	  </tr></table>
+
+
+
+	  <p>
+	    	Dirección:
+	    <mat-form-field class="example-full-width">
+	      <mat-label>Calle</mat-label>
+	      <input [(ngModel)]="direccion.DIRECCION_CALLE" [ngModelOptions]="{standalone: true}" matInput>
+	    </mat-form-field>
+	  </p>
+
+	  <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Colonia</mat-label>
+	      <input [(ngModel)]="direccion.DIRECCION_COLONIA" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field appearance="fill">
+	  <mat-label>Estado</mat-label>
+	  <mat-select [(ngModel)]="direccion.DIRECCION_ESTADO_ID" [ngModelOptions]="{standalone: true}">
+	    <mat-option *ngFor="let estado of estados" [value]="estado.value">
+	      {{estado.viewValue}}
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Alcaldia/Municipio</mat-label>
+	     <input [(ngModel)]="direccion.DIRECCION_MUNICIPIO_ALCALDIA" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	  </tr></table>
+
+	  <table class="example-full-width" cellspacing="0"><tr>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Numero interior</mat-label>
+	      <input [(ngModel)]="direccion.DIRECCION_NUM_INT" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Numero Exterior</mat-label>
+	      <input [(ngModel)]="direccion.DIRECCION_NUM_EXT" [ngModelOptions]="{standalone: true}" matInput >
+	    </mat-form-field></td>
+	    <td><mat-form-field class="example-full-width">
+	      <mat-label>Postal Code</mat-label>
+	      <input [(ngModel)]="direccion.DIRECCION_CP" [ngModelOptions]="{standalone: true}" matInput #postalCode maxlength="5" >
+	      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+	    </mat-form-field></td>
+	  </tr></table>
+
+	  <button (click)="agregar()" mat-raised-button color="primary">Agregar</button>
+	</form>
+</div>

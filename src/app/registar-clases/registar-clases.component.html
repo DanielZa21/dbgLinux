@@ -1,0 +1,41 @@
+<div class="mat-container">
+  <div class="mat-card">
+    <div class="mat-card-header">
+     <h3 class="mat-card-header">Lista de Actividades</h3>
+    </div>
+    <div class="mat-card-content">
+      <table class="mat-table-hover">
+        <thead>
+          <tr>
+            <th class="mat-header-cell" >ID</th>
+            <th class="mat-header-cell" >ACTIVIDAD</th>
+            <th class="mat-header-cell" >ENTRNADOR</th>
+            <th class="mat-header-cell" ></th>
+            <th class="mat-header-cell" >DIA</th>
+            <th class="mat-header-cell" >HORA</th>
+            <th class="mat-header-cell" ></th>
+            <th class="mat-header-cell" >PRECIO ($)</th>
+            <th class="mat-header-cell" >AGREGAR</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let clase of ListarClases"  class="mat-row text-center">
+            <th class="mat-cell" >{{clase.CLASE_ID}}</th>
+            <th class="mat-cell" >{{clase.ACTIVIDAD_T_CLASE}}</th>
+            <td class="mat-cell" >{{clase.ENTRENADOR_NOMBRE}} </td>
+            <td class="mat-cell" >{{clase.ENTRENADOR_APELLIDO_PAT}} </td>
+            <td class="mat-cell" >{{clase.DIA_DIA}}</td>
+            <td class="mat-cell" >{{clase.HORA_INICIO}}</td>
+            <td class="mat-cell" >{{clase.HORA_FINAL}}</td>
+            <td class="mat-cell" >{{clase.ACTIVIDAD_COSTO}}</td>
+            <td class="mat-cell">
+              
+              <button (click)="agregar(clase.CLASE_ID || 0)"  mat-button color='accent'><mat-icon>add</mat-icon><span>Agregar</span></button>
+              
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
