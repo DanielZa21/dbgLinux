@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConexionService, Socio, Clase, ClaseRe } from '../conexion.service';
-import {Router, ActivatedRoute} from '@angular/router'; 
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-lista-clases',
@@ -10,7 +10,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class ListaClasesComponent implements OnInit {
 
   socio: Socio={
-  
+
     SOCIO_NOMBRE:'',
     SOCIO_APELLIDO_PAT:'',
     SOCIO_APELLIDO_MAT:'',
@@ -23,15 +23,15 @@ export class ListaClasesComponent implements OnInit {
   }
 
   claseRe: ClaseRe={
-  
+
   SOCIO_CLASE_CLASE_ID:0,
   SOCIO_CLASE_SOCIO_ID:0,
-    
+
   }
 
   ListarClasesR: Clase[];
   totalPrecio: number = 0; // variable para almacenar el valor total de la columna precio
-  
+
   constructor(private ConexionService:ConexionService, private router:Router, private activeRoute:ActivatedRoute) {
       this.ListarClasesR = [];
    }
@@ -50,7 +50,7 @@ export class ListaClasesComponent implements OnInit {
       );
     }
 
-    this.listarClasesR(id_entrada);    
+    this.listarClasesR(id_entrada);
   }
 
   clases(id:number){
@@ -83,7 +83,7 @@ export class ListaClasesComponent implements OnInit {
     this.ConexionService.deleteClase(this.claseRe,id_entrada).subscribe(
       res=>{
         alert('Clase eliminada');
-         window.location.reload();
+         //window.location.reload();
       },
       err=> console.log(err)
       );
